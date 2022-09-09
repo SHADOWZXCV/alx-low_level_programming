@@ -15,6 +15,11 @@ int main(void)
 	{
 		int start4 = start2 + 1;
 
+		if (start2 == '9')
+		{
+			start4 = '0';
+			start3++;
+		}
 		for (; start3 <= '9' && start4 <= '9'; start4++)
 		{
 			putchar(start);
@@ -24,7 +29,6 @@ int main(void)
 			putchar(start4);
 			if (start == '9' && start2 == '8' && start3 == '9' && start4 == '9')
 				break;
-
 			if (start4 == '9')
 			{
 				start3++;
@@ -34,17 +38,13 @@ int main(void)
 			putchar(',');
 			putchar(' ');
 		}
-
-		start3 = start;
 		if (start2 == '9')
 		{
 			start++;
-			start2 = '0';
+			start2 = '0' - 1;
 		}
-
+		start3 = start;
 	}
-
 	putchar('\n');
-
 	return (0);
 }
