@@ -5,11 +5,12 @@
 void jack_bauer(void)
 {
 	int hours = 0, i = 0;
+
 	for (;; i++)
 	{
 		int j = 0, minutes = 0;
-		
-		if( i > 3 && hours == 2)
+
+		if (i > 3 && hours == 2)
 			break;
 
 		while (j <= 9 && minutes <= 5)
@@ -20,8 +21,9 @@ void jack_bauer(void)
 			_putchar('0' + minutes);
 			_putchar('0' + j);
 			_putchar('\n');
-			
-			if (j == 9){
+
+			if (j == 9)
+			{
 				j = 0;
 				minutes++;
 				continue;
