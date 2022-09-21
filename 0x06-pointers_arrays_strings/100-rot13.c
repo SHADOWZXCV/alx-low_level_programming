@@ -23,6 +23,8 @@ char *rot13(char *a)
 				break;
 			}
 		}
+
+		i++;
 	}
 
 	return (a);
