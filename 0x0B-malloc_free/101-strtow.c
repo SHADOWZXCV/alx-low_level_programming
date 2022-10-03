@@ -74,6 +74,9 @@ char **strtow(char *str)
 
 	wordsCount = countWords(str);
 
+	if(!wordsCount)
+		return (NULL);
+
 	/* +1 for the NULL at the end */
 	map = malloc(sizeof(char *) * (wordsCount + 1));
 	if (map == NULL)
