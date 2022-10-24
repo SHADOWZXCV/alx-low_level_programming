@@ -23,22 +23,30 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 	}
 
-	while (ptr && idx != NODE_BEFORE_POSITION)
-	{
-		ptr = ptr->next;
-		idx--;
-	}
-
-	if (idx != NODE_BEFORE_POSITION || !ptr)
-	{
-		free(newNode);
-		return (NULL);
-	}
-
-	holder = ptr->next;
-	ptr->next = newNode;
-	newNode->next = holder;
 	newNode->n = n;
+
+	if (idx == 0)
+	{
+		*head = newNode;
+		newNode->next = ptr;
+	} else
+	{
+		while (ptr && idx != NODE_BEFORE_POSITION)
+		{
+			ptr = ptr->next;
+			idx--;
+		}
+
+		if (idx != NODE_BEFORE_POSITION || !ptr)
+		{
+			free(newNode);
+			return (NULL);
+		}
+
+		holder = ptr->next;
+		ptr->next = newNode;
+		newNode->next = holder;
+	}
 
 	return (newNode);
 }
